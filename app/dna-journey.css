@@ -1,0 +1,321 @@
+/* Compact connected Growth DNA: eight icons, six numbered stages */
+.journey-section {
+  padding-top: clamp(46px, 5vw, 64px) !important;
+  padding-bottom: clamp(54px, 6vw, 72px) !important;
+}
+
+.journey-heading {
+  max-width: 760px;
+  margin-bottom: 20px;
+}
+
+.journey-heading .section-tag { margin-bottom: 12px; }
+
+.journey-heading h2 {
+  margin: 0 0 10px !important;
+  font-size: clamp(2rem, 4vw, 3rem) !important;
+  line-height: 1.08 !important;
+}
+
+.journey-heading p {
+  max-width: 650px;
+  margin: 0 auto !important;
+  font-size: 0.95rem !important;
+  line-height: 1.6 !important;
+}
+
+.modern-orbit-wrapper { width: min(1100px, 100%); }
+
+.modern-orbit-container.dna-journey {
+  min-height: 720px;
+  grid-template-columns: minmax(0, 1.12fr) minmax(340px, 0.88fr);
+  gap: clamp(34px, 5vw, 58px);
+}
+
+.dna-helix {
+  width: min(100%, 520px);
+  height: 720px;
+}
+
+.dna-label {
+  top: 2px;
+  font-size: 0.68rem;
+}
+
+.dna-journey .dna-node[data-step="1"] { top: 19.0476%; left: 30%; }
+.dna-journey .dna-node[data-step="2"] { top: 32.1429%; left: 70%; }
+.dna-journey .dna-node[data-step="3"] { top: 45.2381%; left: 25%; }
+.dna-journey .dna-node[data-step="4"] { top: 58.3333%; left: 75%; }
+.dna-journey .dna-node[data-step="5"] { top: 71.4286%; left: 30%; }
+.dna-journey .dna-node[data-step="6"] { top: 84.5238%; left: 70%; }
+
+.dna-endpoint {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  left: 50%;
+  z-index: 7;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.dna-logo-endpoint { top: 7.1429%; }
+.dna-growth-endpoint { top: 94.0476%; }
+
+.dna-endpoint-icon {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(125, 211, 252, 0.32);
+  border-radius: 21px;
+  background: rgba(7, 17, 31, 0.95);
+  box-shadow: 0 0 0 7px rgba(56, 189, 248, 0.045), 0 0 35px rgba(34, 211, 238, 0.2), 0 20px 42px rgba(2, 6, 23, 0.44);
+}
+
+.dna-logo-endpoint .dna-endpoint-icon {
+  border-color: rgba(129, 140, 248, 0.46);
+  background: linear-gradient(145deg, rgba(26, 42, 78, 0.97), rgba(20, 20, 55, 0.96));
+  box-shadow: 0 0 0 8px rgba(99, 102, 241, 0.055), 0 0 42px rgba(56, 189, 248, 0.24), 0 0 56px rgba(168, 85, 247, 0.11), 0 20px 45px rgba(2, 6, 23, 0.48);
+  animation: dnaEndpointPulse 3.6s ease-in-out infinite;
+}
+
+.dna-logo-endpoint img {
+  width: 53px;
+  height: 48px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 10px rgba(59, 130, 246, 0.28));
+}
+
+.dna-growth-endpoint .dna-endpoint-icon {
+  border-color: rgba(244, 114, 182, 0.38);
+  background: linear-gradient(145deg, rgba(18, 38, 68, 0.98), rgba(32, 20, 62, 0.96));
+  box-shadow: 0 0 0 7px rgba(168, 85, 247, 0.045), 0 0 36px rgba(168, 85, 247, 0.19), 0 18px 42px rgba(2, 6, 23, 0.44);
+  animation: dnaEndpointPulse 3.6s -1.8s ease-in-out infinite;
+}
+
+.dna-growth-endpoint svg {
+  width: 34px;
+  height: 34px;
+  color: #c4d5ed;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.dna-endpoint-label {
+  position: absolute;
+  bottom: -27px;
+  left: 50%;
+  color: #a8b8ce;
+  font-size: 0.56rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+@keyframes dnaEndpointPulse {
+  50% {
+    border-color: rgba(125, 211, 252, 0.62);
+    box-shadow: 0 0 0 9px rgba(99, 102, 241, 0.065), 0 0 46px rgba(56, 189, 248, 0.28), 0 20px 45px rgba(2, 6, 23, 0.46);
+  }
+}
+
+.dna-journey:not(.is-in-view) .dna-strand,
+.dna-journey:not(.is-in-view) .dna-backbone .laser-line,
+.dna-journey:not(.is-in-view) .dna-endpoint-icon { animation-play-state: paused; }
+
+.dna-journey.is-in-view .dna-strand,
+.dna-journey.is-in-view .dna-backbone .laser-line,
+.dna-journey.is-in-view .dna-endpoint-icon { animation-play-state: running; }
+
+.dna-journey .dna-node:focus-visible {
+  outline: 3px solid rgba(125, 211, 252, 0.78);
+  outline-offset: 7px;
+  border-radius: 14px;
+}
+
+.dna-journey .dna-node:focus-visible .node-icon {
+  border-color: #f472b6;
+  background: linear-gradient(145deg, rgba(37, 99, 235, 0.34), rgba(236, 72, 153, 0.22));
+  box-shadow: 0 0 0 5px rgba(244, 114, 182, 0.08), 0 0 28px rgba(244, 114, 182, 0.3);
+}
+
+.dna-detail-board.orbit-center-board {
+  width: 100%;
+  max-width: 460px;
+  min-height: 0;
+  position: sticky;
+  top: 112px;
+  align-self: center;
+  justify-self: center;
+  justify-content: flex-start;
+  padding: clamp(26px, 3vw, 34px);
+  border-radius: 20px;
+}
+
+.dna-detail-kicker { margin-bottom: 20px; }
+.dna-detail-board .ocb-stage-tag { margin-bottom: 8px; }
+
+.dna-detail-board .ocb-title {
+  margin-bottom: 12px;
+  font-size: clamp(1.65rem, 2.5vw, 2.15rem);
+}
+
+.dna-detail-board .ocb-desc {
+  max-width: 390px;
+  margin-bottom: 18px;
+  color: #9aabc1;
+  font-size: 0.9rem;
+  line-height: 1.62;
+}
+
+.dna-detail-board .ocb-tags {
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.dna-detail-board .ocb-tags span {
+  padding: 6px 9px;
+  border-radius: 7px;
+  font-size: 0.66rem;
+  white-space: nowrap;
+}
+
+.dna-sequence {
+  margin-top: 24px;
+  gap: 6px;
+}
+
+.dna-sequence i {
+  width: 26px;
+  height: 26px;
+}
+
+@media (max-width: 920px) {
+  .modern-orbit-container.dna-journey {
+    min-height: 0;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .dna-helix {
+    width: min(100%, 500px);
+    height: 700px;
+  }
+
+  .dna-detail-board.orbit-center-board {
+    max-width: 620px;
+    min-height: 0;
+    position: static;
+    padding: 26px !important;
+  }
+}
+
+@media (max-width: 540px) {
+  .journey-section {
+    padding-top: 52px !important;
+    padding-bottom: 64px !important;
+  }
+
+  .journey-heading {
+    max-width: 430px;
+    margin-bottom: 14px;
+  }
+
+  .journey-heading .section-tag { margin-bottom: 10px; }
+
+  .journey-heading h2 {
+    margin-bottom: 8px !important;
+    font-size: clamp(1.72rem, 8.5vw, 2.25rem) !important;
+  }
+
+  .journey-heading p {
+    font-size: 0.86rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .dna-helix {
+    width: min(100%, 390px);
+    height: 650px;
+  }
+
+  .dna-label {
+    top: 0;
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+  }
+
+  .dna-journey .orbit-node.dna-node {
+    width: 46px;
+    height: 46px;
+    scroll-margin-block: 42vh;
+  }
+
+  .dna-endpoint {
+    width: 52px;
+    height: 52px;
+  }
+
+  .dna-logo-endpoint img {
+    width: 36px;
+    height: 32px;
+  }
+
+  .dna-growth-endpoint svg {
+    width: 27px;
+    height: 27px;
+  }
+
+  .dna-endpoint-label {
+    bottom: -21px;
+    font-size: 0.47rem;
+    letter-spacing: 0.08em;
+  }
+
+  .dna-node .node-badge {
+    bottom: -20px;
+    font-size: 0.45rem;
+  }
+
+  .dna-journey .dna-node:not(.active) .node-icon {
+    box-shadow: 0 10px 24px rgba(2, 6, 23, 0.32);
+  }
+
+  .dna-journey .dna-node.active .node-icon { transform: scale(1.04); }
+
+  .dna-detail-board.orbit-center-board {
+    width: calc(100% - 8px);
+    min-height: 0 !important;
+    padding: 21px 18px !important;
+    border-radius: 17px;
+    text-align: left;
+  }
+
+  .dna-detail-kicker { margin-bottom: 13px; font-size: 0.56rem; }
+  .dna-detail-board .ocb-stage-tag { margin-bottom: 7px; font-size: 0.6rem; }
+  .dna-detail-board .ocb-title { margin-bottom: 9px; font-size: 1.48rem; }
+  .dna-detail-board .ocb-desc { max-width: 100%; margin-bottom: 13px; font-size: 0.82rem; line-height: 1.52; }
+  .dna-detail-board .ocb-tags { width: 100%; gap: 6px; justify-content: flex-start; }
+  .dna-detail-board .ocb-tags span { padding: 6px 8px; font-size: 0.61rem; }
+  .dna-sequence { margin-top: 14px; flex-wrap: wrap; }
+  .dna-sequence i { width: 22px; height: 22px; font-size: 0.5rem; }
+}
+
+@media (max-width: 360px) {
+  .dna-helix {
+    width: 100%;
+    height: 630px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dna-strand,
+  .dna-backbone .laser-line,
+  .dna-endpoint-icon { animation: none !important; }
+
+  .dna-packet { display: none; }
+}

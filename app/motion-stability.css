@@ -1,0 +1,33 @@
+/* Preserve completed one-shot Home animations across client-side route changes. */
+html.home-hero-animation-complete .header,
+html.home-hero-animation-complete .hero-content,
+html.home-hero-animation-complete .hero-card,
+html.home-hero-animation-complete .hero-badge,
+html.home-hero-animation-complete .hero [data-reveal],
+html.home-hero-animation-complete .hero h1 .reveal-line,
+html.home-hero-animation-complete .hero-chart-line,
+html.home-hero-animation-complete .hero-chart-area {
+  animation: none !important;
+}
+
+html.home-hero-animation-complete .header,
+html.home-hero-animation-complete .hero-content,
+html.home-hero-animation-complete .hero-card,
+html.home-hero-animation-complete .hero-badge,
+html.home-hero-animation-complete .hero [data-reveal] {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+html.home-hero-animation-complete .hero h1 .reveal-line {
+  clip-path: inset(0 0 0 0);
+}
+
+html.home-hero-animation-complete .hero-chart-line {
+  stroke-dashoffset: 0;
+}
+
+html.home-hero-animation-complete .hero-chart-area {
+  opacity: 1;
+}
