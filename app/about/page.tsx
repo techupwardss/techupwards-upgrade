@@ -27,38 +27,30 @@ const founders = [
   {
     name: "Anirban Chattaraj",
     image: "/assets/anirban.jpg",
-    role: "CO-FOUNDER",
-    tags: ["Strategy", "Growth"],
-    expertise: "Focused on business strategy, digital innovation, and scalable growth solutions.",
+    degree: "B.Tech · ECE",
+    expertise: "Engineering principles, problem-solving, and technology innovation.",
     linkedin: "https://www.linkedin.com/in/anirban-chattaraj-57a531205/",
-    twitter: "#",
-  },
-  {
-    name: "Shuvam Ghosh",
-    image: "/assets/shuvam.jpg",
-    role: "CO-FOUNDER",
-    tags: ["Operations", "Relations"],
-    expertise: "Managing operations, client solutions, and business development initiatives.",
-    linkedin: "https://www.linkedin.com/in/shuvam-ghosh-4a7b75249/",
-    twitter: "#",
   },
   {
     name: "Kushal Ghosh",
     image: "/assets/Kushal.jpg",
-    role: "CO-FOUNDER",
-    tags: ["Technology", "Execution"],
-    expertise: "Leading technology systems, digital execution, and scalable service delivery.",
+    degree: "B.Tech · CSE",
+    expertise: "Modern software development, system architecture, and emerging technologies.",
     linkedin: "https://www.linkedin.com/in/kushal-ghosh-a0808b290/",
-    twitter: "https://github.com",
+  },
+  {
+    name: "Shuvam Ghosh",
+    image: "/assets/shuvam.jpg",
+    degree: "B.Tech · CSE",
+    expertise: "Software engineering, application development, and digital transformation.",
+    linkedin: "https://www.linkedin.com/in/shuvam-ghosh-4a7b75249/",
   },
   {
     name: "Tanangshu Dutta",
     image: "/assets/tanangshu.jpg",
-    role: "MARKETING HEAD",
-    tags: ["Branding", "Marketing"],
-    expertise: "Driving digital marketing, branding, audience engagement, and online reach.",
+    degree: "B.Sc. (Hons)",
+    expertise: "Modern programming languages, frameworks, and technology-driven solutions.",
     linkedin: "https://www.linkedin.com/in/tanangshu-dutta-a61565249/",
-    twitter: "#",
   },
 ];
 
@@ -74,14 +66,6 @@ function LinkedInIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z" />
-    </svg>
-  );
-}
-
-function XIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.6l-5.165-6.75-5.92 6.75H2.556l7.73-8.835L1.966 2.25h6.74l4.68 6.182 5.37-6.182zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
     </svg>
   );
 }
@@ -185,40 +169,23 @@ export default function AboutPage() {
                     <span className="team-img-glow" aria-hidden="true" />
                   </div>
                   <div className="about-founder-card-body">
+                    <span className="about-founder-index">0{index + 1}</span>
                     <h3>{founder.name}</h3>
-                    <span className="member-role">{founder.role}</span>
+                    <span className="member-role">Founding Team</span>
                     <div className="member-tags">
-                      {founder.tags.map((tag) => (
-                        <span className="member-tag" key={tag}>
-                          {tag}
-                        </span>
-                      ))}
+                      <span className="member-tag">{founder.degree}</span>
                     </div>
                     <p>{founder.expertise}</p>
-                    <div className="about-founder-socials">
-                      {founder.linkedin && founder.linkedin !== "#" && (
-                        <a
-                          href={founder.linkedin}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="about-founder-social"
-                          aria-label={`${founder.name} on LinkedIn`}
-                        >
-                          <LinkedInIcon />
-                        </a>
-                      )}
-                      {founder.twitter && founder.twitter !== "#" && (
-                        <a
-                          href={founder.twitter}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="about-founder-social"
-                          aria-label={`${founder.name} on X`}
-                        >
-                          <XIcon />
-                        </a>
-                      )}
-                    </div>
+                    <a
+                      href={founder.linkedin}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="about-founder-social"
+                      aria-label={`${founder.name} on LinkedIn`}
+                    >
+                      <LinkedInIcon />
+                      LinkedIn
+                    </a>
                   </div>
                 </article>
               ))}

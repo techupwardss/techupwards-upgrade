@@ -80,7 +80,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
-        <Script src="/interactions.js?v=31" strategy="afterInteractive" />
       </body>
     </html>
   );

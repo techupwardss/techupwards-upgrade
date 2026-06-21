@@ -346,7 +346,7 @@
 }
 
 .about-founders-heading {
-  margin: 112px 0 38px;
+  margin: 88px 0 30px;
   text-align: center;
 }
 
@@ -361,14 +361,14 @@
 .about-founders-heading h2 {
   margin: 13px 0 0;
   color: #f8fbff;
-  font-size: clamp(2.3rem, 4vw, 4rem);
+  font-size: clamp(2.2rem, 3.5vw, 3.4rem);
   letter-spacing: -0.045em;
 }
 
 .about-story-section .about-founder-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
   max-width: none;
   margin: 0;
 }
@@ -376,12 +376,17 @@
 .about-story-section .about-founder-card {
   position: relative;
   min-width: 0;
-  padding: 12px;
+  min-height: 214px;
+  display: grid;
+  grid-template-columns: 156px minmax(0, 1fr);
+  align-items: stretch;
+  padding: 10px;
   border: 1px solid rgba(125, 220, 255, 0.17);
-  border-radius: 24px;
+  border-radius: 20px;
   overflow: hidden;
   background: rgba(6, 20, 47, 0.82);
-  box-shadow: 0 22px 54px rgba(0, 0, 0, 0.25);
+  text-align: left;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.22);
   backdrop-filter: blur(16px);
 }
 
@@ -390,16 +395,18 @@
 }
 
 .about-story-section .about-founder-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px);
   border-color: rgba(125, 220, 255, 0.38);
-  box-shadow: 0 26px 62px rgba(0, 0, 0, 0.32);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.28);
 }
 
 .about-story-section .team-img-wrapper {
+  position: relative;
   width: 100%;
-  height: 300px;
+  height: 100%;
+  min-height: 194px;
   margin: 0;
-  border-radius: 17px;
+  border-radius: 14px;
   overflow: hidden;
   background: #071426;
 }
@@ -407,9 +414,12 @@
 .about-story-section .team-img {
   width: 100%;
   height: 100%;
+  border: 0;
+  border-radius: 0;
   object-fit: cover;
   object-position: center top;
   filter: saturate(0.86) contrast(1.03);
+  box-shadow: none;
 }
 
 .about-story-section .team-img-glow {
@@ -423,13 +433,17 @@
 
 .about-founder-card-body {
   position: relative;
-  padding: 22px 10px 12px;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 18px 18px 14px;
 }
 
 .about-founder-index {
   position: absolute;
-  right: 8px;
-  top: 18px;
+  right: 2px;
+  top: 15px;
   color: rgba(142, 223, 255, 0.42);
   font-size: 0.68rem;
   font-weight: 900;
@@ -437,21 +451,22 @@
 }
 
 .about-story-section .about-founder-card h3 {
-  margin: 0 34px 6px 0;
+  margin: 0 34px 5px 0;
   color: #f8fbff;
-  font-size: 1.14rem;
+  font-size: 1.08rem;
+  line-height: 1.25;
 }
 
 .about-story-section .member-role {
   color: #78d7ff;
-  font-size: 0.66rem;
+  font-size: 0.61rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
 .about-story-section .member-tags {
   justify-content: flex-start;
-  margin: 14px 0 12px;
+  margin: 12px 0 10px;
 }
 
 .about-story-section .member-tag {
@@ -461,18 +476,19 @@
 }
 
 .about-story-section .about-founder-card p {
-  min-height: 96px;
+  min-height: 0;
   margin: 0;
   color: #9fb0c9;
-  font-size: 0.84rem;
-  line-height: 1.65;
+  font-size: 0.78rem;
+  line-height: 1.55;
 }
 
 .about-founder-social {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 18px;
+  margin-top: auto;
+  padding-top: 13px;
   color: #dbeafe;
   font-size: 0.75rem;
   font-weight: 750;
@@ -534,12 +550,8 @@
 }
 
 @media (max-width: 1024px) {
-  .about-story-section .about-founder-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .about-story-section .team-img-wrapper { height: 340px; }
-  .about-story-section .about-founder-card p { min-height: 74px; }
+  .about-story-section .about-founder-card { grid-template-columns: 132px minmax(0, 1fr); }
+  .about-story-section .team-img-wrapper { min-height: 188px; }
   .about-mission-panel { grid-template-columns: 1fr 2fr; }
   .about-mission-link { grid-column: 1 / -1; justify-self: start; }
 }
@@ -557,10 +569,10 @@
   .about-letter-copy { columns: 1; }
   .about-letter-copy p + p { margin-top: 1.3em; }
   .about-founder-letter::after { font-size: 10rem; }
-  .about-founders-heading { margin-top: 82px; }
+  .about-founders-heading { margin-top: 72px; }
   .about-story-section .about-founder-grid { grid-template-columns: 1fr; }
-  .about-story-section .team-img-wrapper { height: min(108vw, 440px); }
-  .about-story-section .about-founder-card p { min-height: 0; }
+  .about-story-section .about-founder-card { grid-template-columns: 124px minmax(0, 1fr); min-height: 188px; }
+  .about-story-section .team-img-wrapper { height: 100%; min-height: 168px; }
   .about-mission-panel { grid-template-columns: 1fr; gap: 17px; margin-top: 64px; padding: 30px 25px; }
   .about-mission-link { grid-column: auto; }
 }
@@ -572,6 +584,11 @@
   .about-founder-letter h3 { font-size: 2rem; }
   .about-letter-copy p { font-size: 0.94rem; }
   .about-letter-signoff img { width: 42px; height: 42px; }
+  .about-story-section .about-founder-card { grid-template-columns: 104px minmax(0, 1fr); padding: 8px; border-radius: 16px; }
+  .about-story-section .team-img-wrapper { min-height: 156px; border-radius: 11px; }
+  .about-founder-card-body { padding: 14px 11px 10px; }
+  .about-story-section .about-founder-card h3 { font-size: 0.96rem; }
+  .about-story-section .about-founder-card p { font-size: 0.7rem; line-height: 1.45; }
 }
 
 @media (prefers-reduced-motion: reduce) {

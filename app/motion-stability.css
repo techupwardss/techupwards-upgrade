@@ -31,3 +31,9 @@ html.home-hero-animation-complete .hero-chart-line {
 html.home-hero-animation-complete .hero-chart-area {
   opacity: 1;
 }
+
+
+/* Permanent protection against legacy sections flashing back after DOM restoration. */
+html:has(.momentum-bridge) .rocket-launch-header { display: none !important; }
+html:has([data-ai-process-react]) .features-showcase:not([data-ai-process-host]) { display: none !important; }
+html:has(.dna-journey) .modern-orbit-container:not(.dna-journey) { display: none !important; }

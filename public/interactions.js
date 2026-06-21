@@ -131,7 +131,7 @@ document.querySelectorAll('.nav-links a').forEach(link =>
 (function enhanceHomepage() {
     homeEnhancers.enhanceHomepage = enhanceHomepage;
     const heroVisual = document.querySelector('.hero-card');
-    if (heroVisual) {
+    if (heroVisual && !heroVisual.querySelector('.hero-product-shell')) {
         heroVisual.innerHTML = `
             <div class="hero-product-shell">
                 <div class="hero-product-bar">
@@ -1333,3 +1333,54 @@ window.addEventListener('techupwards:home-unmounted', () => {
     window.__techupwardsCanvasCleanup?.();
     window.__techupwardsPluginDotsCleanup?.();
 });
+
+
+// ── PERMANENT NEW-DESIGN LOCK ────────────────────────────
+(function lockNewHomepageDesign() {
+    let repairing = false;
+    let repairFrame = 0;
+
+    const needsRepair = () => Boolean(
+        document.querySelector('.rocket-launch-header') ||
+        (document.querySelector('.features-showcase:not([data-ai-process-host])')) ||
+        (document.querySelector('.modern-orbit-container:not(.dna-journey)')) ||
+        (!document.querySelector('.momentum-bridge') && document.querySelector('main')) ||
+        (!document.querySelector('#projects') && document.querySelector('.services'))
+    );
+
+    const repair = () => {
+        if (repairing) return;
+        repairing = true;
+        window.cancelAnimationFrame(repairFrame);
+        repairFrame = window.requestAnimationFrame(() => {
+            remountHomeEnhancements();
+            window.requestAnimationFrame(() => {
+                remountHomeEnhancements();
+                repairing = false;
+            });
+        });
+    };
+
+    // A double click must never expose the legacy DOM/design.
+    document.addEventListener('dblclick', event => {
+        event.preventDefault();
+        repair();
+    }, true);
+
+    // If React/Next restores any legacy node, replace it immediately.
+    const observer = new MutationObserver(() => {
+        if (needsRepair()) repair();
+    });
+
+    const start = () => {
+        if (!document.body) return;
+        observer.observe(document.body, { childList: true, subtree: true });
+        if (needsRepair()) repair();
+    };
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', start, { once: true });
+    } else {
+        start();
+    }
+})();
